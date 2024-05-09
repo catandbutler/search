@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/searchpage"
+        android:icon="@drawable/home"
+        android:title="검색" />
+
+    <item
+        android:id="@+id/savepage"
+        android:icon="@drawable/bookmark_fill"
+        android:title="저장"/>
+</menu>
