@@ -34,7 +34,7 @@ class SaveAdapter(
     override fun onBindViewHolder(holder: SaveViewHolder, position: Int) {
         val item = Items[position]
         // 문자열 파싱
-        val parsed = OffsetDateTime.parse(item.dateTime)
+        val parsed = OffsetDateTime.parse(item.datetime)
         // 원하는 형식으로 변환
         val parseDate = parsed.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val parseTime = parsed.format(DateTimeFormatter.ofPattern("HH:mm"))
@@ -67,7 +67,7 @@ class SaveAdapter(
         val time = binding.time
         val bookmark = binding.bookmark
 
-        // 생성자에서 Documnet를 리스트를 mData 항목을 복사해 초기화
+        // 생성자에서 Documnet를 리스트를 Data 항목을 복사해 초기화
         init {
             // 생성자에서 Document 초기화
             Items.addAll(Data.map {

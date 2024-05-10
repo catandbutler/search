@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,13 +63,15 @@ class FragmentSearch : Fragment() {
         return view
     }
     private fun communicateNetwork(param: HashMap<String, String>) = lifecycleScope.launch {
+
         val authorization = "KakaoAK ${Constrant.REST_API_KEY}"
         val response = NetWorkClient.service.searchImages(authorization, param)
         items = response.searchDocument
 
+
         // Search에 데이터 추가
         val searchDataList = items.map {
-            Search(it.image_url, it.display_sitename, it.dateTime)
+            Search(it.image_url, it.display_sitename, it.datetime)
         }
 
         // api에서 받아온 데이터로 recyclerview 구성
@@ -86,8 +89,8 @@ class FragmentSearch : Fragment() {
 
         // 키보드 내리기
         private fun hideKeyboard() {
-            val inputMS = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMS.hideSoftInputFromWindow(binding.searchEditText.windowToken, 0)
+            val input = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            input.hideSoftInputFromWindow(binding.searchEditText.windowToken, 0)
         }
 
         private fun queryParameter(input: String): HashMap<String, String> {

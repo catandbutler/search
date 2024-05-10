@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/bookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

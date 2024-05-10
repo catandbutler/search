@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.adapters.SearchViewBindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearch.Data.Search
@@ -23,6 +24,7 @@ class SearchAdapter(
     private val Items: MutableList<SearchDocument>,
     val Data: List<Search>
 ) :
+
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     override fun getItemCount(): Int {
         return Items.size
@@ -40,7 +42,7 @@ class SearchAdapter(
         val item = Items[position]
         val data = Data[position]
         // 문자열 파싱
-        val parsed = OffsetDateTime.parse(item.dateTime)
+        val parsed = OffsetDateTime.parse(item.datetime)
         // 원하는 형식으로 변환
         val parseDate = parsed.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val parseTime = parsed.format(DateTimeFormatter.ofPattern("HH:mm"))

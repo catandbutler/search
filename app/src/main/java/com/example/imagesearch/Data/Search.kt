@@ -20,7 +20,7 @@ data class SearchMeta (
 data class SearchDocument (
     val image_url : String,
     val display_sitename : String,
-    val dateTime : String,
+    val datetime : String,
 
 )
 
